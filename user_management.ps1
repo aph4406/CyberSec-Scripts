@@ -1,5 +1,5 @@
 # Save as user_management.ps1
-$KeepList = @("Administrator", "drwho", "martymcfly", "arthurdent", "sambeckett", "loki", "riphunter", "theflash", "tonystark", "drstrange", "bartallen")
+$KeepList = @("Administrator", "drwho", "martymcfly", "arthurdent", "sambeckett", "loki", "riphunter", "theflash", "tonystark", "drstrange", "bartallen", "whiteteam", "blackteam", "grayteam", "datadog", "dd-dog")
 $ExcludeFromPasswordChange = @("whiteteam", "blackteam", "grayteam", "datadog", "dd-dog")
 $Password = ConvertTo-SecureString "ChangeMeNow!2025" -AsPlainText -Force
 
@@ -15,4 +15,5 @@ foreach ($user in $KeepList) {
     Set-LocalUser -Name $user -Password $Password
     Write-Output "Password changed: $user"
 }
+
 
