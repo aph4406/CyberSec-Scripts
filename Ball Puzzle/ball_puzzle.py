@@ -7,8 +7,8 @@ author: Aidan Hearn
 
 #Import Statements
 import ball_puzzle_animate
+from time import perf_counter
 from cs_stack import CSStack
-#from node_types import FrozenNode - Caleb said I didn't need to import
 
 #Stacks
 red_stack = CSStack()
@@ -83,10 +83,15 @@ def main() -> None:
     for j in rgb_string:
         stack_list[0].push(str(j))
     ball_puzzle_animate.animate_init(rgb_string)
+    start_time = perf_counter()
     ball_count = main_move() #all my movement and animation is called here, didn't want a super long main function
+    end_time = perf_counter()
+    final_time = end_time - start_time
     print("Puzzle solved in " + str(ball_count) + " moves!")
+    print(f"Time: {final_time:.4f} seconds!")
     print("Close the window to quit")
     ball_puzzle_animate.animate_finish()
 
 if __name__ == '__main__':
     main()
+
